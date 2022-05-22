@@ -1,0 +1,21 @@
+[
+    {
+        "basic": {
+            "first_name": "Andrew",
+            "middle_initial": "D",
+            "last_name": "Crocker",
+            "email": "drewcrocker23@gmail.com",
+            "username": "FlightDude",
+            "company": "bravoairlines",
+            "permissions": {
+                "circuit": true,
+                "bookaflight": true,
+                "aceapp": true
+            }
+        },
+        "auth": {
+            "username": "FlightDude",
+            "password": "$2b$10$btBJWWQu2/Z/XLff.O7/nev.4c1OeMewT7y9Tbl2R2Pof8jm/W8vG"
+        }
+    }
+]

@@ -1,0 +1,539 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5f9ff;
+}
+
+/* All animations */
+
+@keyframes populate {
+    from { margin-top: 20px }
+    to { margin-top: 0px }
+}
+
+/* Navigation dependencies */
+
+#navigation {
+    width: 15%;
+    height: 100%;
+    float: left;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo-wrapper {
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+
+#logo {
+    width: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-btn-wrapper {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 30px;
+}
+
+.btn-wrapper {
+    width: 100%;
+    height: 90px;
+    position: relative;
+}
+
+.btn-ctx {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: #1479FF;
+    border: none;
+    box-shadow: 0 10px 30px 3px rgba(20, 121, 255, 0.3);
+}
+
+.usr-btn-ctx {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0px 30px 3px rgba(20, 121, 255, 0.3);
+}
+
+.nav-page-txt {
+    font-family: roboto;
+    font-size: 14;
+    font-weight: 700;
+    color: #1479FF;
+    text-align: center;
+}
+
+.nav-img {
+    position: absolute;
+    width: 40%;
+    left: 50%; right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lastElement { margin-bottom: 50px; }
+.spacer { flex-grow: 1; }
+.inactive { color: #193B68 }
+.inactive-btn { 
+    background-color: #F3F8FF; 
+    box-shadow: none;
+}
+
+/* Destination dependencies */
+
+::-webkit-scrollbar { width: 0; }
+
+#destinations {
+    width: 30%;
+    height: 100%;
+    float: left;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+#destination-header {
+    font-family: roboto;
+    color: #193B68;
+    font-size: 40px;
+}
+
+#subheader {
+    font-family: roboto;
+    color: #cad0d6;
+    margin: 15px 0;
+    margin-bottom: 20px;
+}
+
+#new-destination {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #1479FF;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-family: roboto;
+    box-shadow: 0 10px 30px 3px rgba(20, 121, 255, 0.3);
+    color: white;
+    margin-bottom: 30px;
+}
+
+#destination-wrapper {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+/* .destination is used for all EJS instances */
+
+.destination {
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 2px solid rgb(228,234,243);
+    border-radius: 8px;
+    position: relative;
+    animation: populate 1s forwards;
+}
+
+.modified { border: 3px solid #1479FF; }
+
+.img-wrapper {
+    height: 100%;
+    width: 17%;
+    position: relative;
+    float: left;
+}
+
+.head-img {
+    width: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.destination-txt-ctr-wrapper {
+    height: 100%;
+    width: 83%;
+    position: relative;
+    float: right;
+}
+
+.destination-txt {
+    font-family: roboto;
+    font-size: 14px;
+    line-height: 17px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-51%);
+    width: 100%;
+    font-weight: 400;
+}
+
+.destination-txt-head {
+    font-weight: 700;
+    color: #1479FF;
+}
+
+.route-load {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 50%; right: 17.5px;
+    transform: translateY(-50%);
+}
+
+/* Resources dependencies */
+
+#resources {
+    width: 55%;
+    height: 100%;
+    padding: 40px 60px;
+    padding-left: 0px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+#resource-widget-container {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+#resource-content-container {
+    width: 100%;
+    flex-grow: 1;
+}
+
+#resource-calendar {
+    width: 30%;
+    float: left;
+    height: 100%;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 10px 30px 3px rgba(20, 121, 255, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#resource-widget {
+    width: 67%;
+    float: right;
+    height: 100%;
+    position: relative;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 10px 30px 3px rgba(161, 197, 245, 0.1);
+}
+
+#resource-content-display {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-shadow: 0 10px 30px 3px rgba(20, 121, 255, 0.1);
+}
+
+#calendar-header {
+    font-family: roboto;
+    color: #193B68;
+    font-size: 20px;
+}
+
+#calendar-body {
+    width: 100%;
+    flex-grow: 1;
+    margin-top: 10px;
+    /* TODO: Fix overflowing months? */
+    overflow: hidden;
+}
+
+.calendar-elmt {
+    width: calc(13% - 2px);
+    height: calc(20% - 2.5px);
+    float: left;
+    margin-right: 4px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: roboto;
+    position: relative;
+    border: 2px solid #E3E9F1;
+}
+
+#currentDayText { 
+    position: absolute; 
+    top: 50%; left: 50%;
+    font-size: 13px;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: roboto;
+}
+
+#currentDay { 
+    background-color: #1479FF;
+    border: 2px solid #1479FF;
+    box-shadow: 0 10px 30px 3px rgba(20, 121, 255, 0.4);
+}
+
+.error-mask {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.buffer {
+    width: 20px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#no-content-wrapper {
+    width: 80px;
+    height: fit-content;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#no-content-container {
+    height: 50px;
+    width: 100%;
+    position: relative;
+}
+
+#no-content {
+    height: 70%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#no-content-txt {
+    font-family: roboto;
+    color: #e7e7e7;
+    font-size: 13px;
+    text-align: center;
+}
+
+.error {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 40px;
+    transform: translate(-50%, -50%);
+}
+
+.hidden { display: none; }
+
+#current-destination {
+    width: 92%;
+    height: 80px;
+    display: none;
+    margin: 4% 4%;
+    border-radius: 10px;
+    border: 3px solid #1479FF;
+    box-shadow: 0 10px 30px 5px rgb(20, 121, 255, 0.2);
+}
+
+#curr-destination-img-container {
+    width: 80px;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+#curr-destination-ctx-container {
+    width: calc(100% - 80px);
+    height: 100%;
+    float: left;
+    position: relative;
+    padding: 7px;
+}
+
+#curr-destination-img {
+    height: 48px;
+    width: 48px;
+    border: 3px solid #1479FF;
+    box-shadow: 0 10px 30px 5px rgb(20, 121, 255, 0.2);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+#dest-icao {
+    padding: 3px 7px;
+    border-radius: 6px;
+    font-family: roboto;
+    color: white;
+    margin-right: 5px;
+    background-color: #1479FF;
+}
+
+#dest-city-header {
+    color: #193B68;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: roboto;
+}
+
+#dest-info-wrapper { padding: 3.5px 0; }
+
+#dest-city-footer {
+    color: #193B68;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: -12px;
+    font-family: roboto;
+    text-transform: uppercase;
+}
+
+#actions-container {
+    width: 60px;
+    height: 20px;
+    position: absolute;
+    top: 50%; right: 40px;
+    transform: translateY(-50%);
+}
+
+#left-action { height: 100%; float: left }
+#right-action { height: 100%; float: right }
+
+#destination-departures {
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 20px;
+    display: none;
+    position: relative;
+}
+
+#destination-ctx-ctr {
+    width: 92%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#route-ctr-container {
+    width: 92%;
+    height: 100%;
+    float: left;
+    overflow-y: scroll;
+}
+
+.route-wrapper {
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    position: relative;
+    border: 3px solid #E4EAF3;
+}
+
+.route-description {
+    width: calc(100% - 65px);
+    font-size: 16px;
+    font-family: roboto;
+    color: #193B68;
+    position: absolute;
+    right: 0px; top: 50%;
+    transform: translateY(-50%);
+}
+
+.route-icao {
+    background-color: #1479FF;
+    color: white;
+    margin-right: 7px;
+    padding: 4px 7px;
+    border-radius: 5px;
+}
+
+#smart-tool-container {
+    width: 8%;
+    height: 100%;
+    float: right;
+    position: relative;
+}
+
+.action-icon-wrapper {
+    width: 100%;
+    height: 35px;
+    background-color: #ececec;
+    position: relative;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.action-icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 40%;
+    transform: translate(-50%, -50%);
+}
+
+#action-wrapper {
+    width: 35px;
+    height: fit-content;
+    float: right;
+}
+
+/* Map styles */
+
+#routemap {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    border: 10xpx solid black;
+}
+
+#routemap-desc {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 7px 15px;
+    color: #193B68;
+    border: 3px solid #1479FF;
+    background-color: white;
+    box-shadow: 0 10px 30px 3px rgba(20, 121, 255, 0.4);
+    border-radius: 10px;
+    font-family: roboto;
+}
+
+#routemap-desc-loc { color: #1479FF; }

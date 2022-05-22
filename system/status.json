@@ -1,0 +1,20 @@
+{
+    "reject": {
+        "0x0001": "The requested route is undefined",
+        "0x0002": "Unexpected internal error.",
+        "0x0003": "There was an error creating a new sessionID.",
+        "0x0004": "There was an error verifying the origin of the request (clientID).",
+        "0x0005": "User authentication failed.",
+        "0x0006": "There was an error verifying the sessionID of the request.",
+        "0x0007": "There was a problem while trying to verify a session duplicate.",
+        "0x0008": "The user did not have the right permissions for an application."
+    },
+    "progressive": {},
+    "resolve": {
+        "1x0001": "A user was successfully identified and authenticated.",
+        "1x0002": "The routeID of a request was successfully identified.",
+        "1x0003": "The sessionID of a request was successfully identified.",
+        "1x0004": "A sessionID has successfully been created for a client.",
+        "1x0005": "The server found a session duplicate ===> forwarding session"
+    }
+}

@@ -1,0 +1,208 @@
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="ace/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="ace/scripts/script.js"></script>
+    <script src="ace/scripts/circuit.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ace Airlines Dashboard</title>
+  </head>
+  <body onload="startTime()" style="overflow: hidden;">
+    <div class="background" style="background-image: url('ace/background.jpg'); background-size: cover;">
+       <div class="side-bar" id="side-bar">
+        <!--info on selected object-->
+                  <div id="resources" style="animation: flight-show 2s forwards; display: none;">
+                    <div id="resource-widget-container">
+                        <div id="resource-calendar">
+                            <h1 id="calendar-header"></h1>
+                            <div id="calendar-body"></div>
+                            <img class="buffer" src="bravo/buffer.gif" data-loc="calendar">
+                            <div data-loc="calendar" class="error-mask">
+                                <img src="bravo/error.png" class="error">
+                            </div>
+                        </div>
+                        <div id="resource-widget">
+                            <div id="routemap"></div>
+                            <p id="routemap-desc">Showing: <span id="routemap-desc-loc">United States</span></p>
+                            <div data-loc="widget" class="error-mask">
+                                <img src="bravo/error.png" class="error">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="resource-content-container">
+                        <div id="resource-content-display">
+                            <div id="current-destination">
+                                <div id="curr-destination-img-container">
+                                    <img src="bravo/default.png" id="curr-destination-img">
+                                </div>
+                                <div id="curr-destination-ctx-container">
+                                    <p id="dest-info-wrapper">
+                                        <p id="dest-city-header">
+                                            <span id="dest-icao">HSV</span>
+                                            <span id="city-state">Huntsville, AL</span>
+                                        </p><br>
+                                        <p id="dest-city-footer">
+                                            <span id="dest-routes">3</span> route(s) currently tracked
+                                        </p>
+                                    </p>
+                                    <div id="actions-container">
+                                        <img src="ace/pencil.png" id="left-action">
+                                        <img src="bravo/rubbish.png" id="right-action">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="destination-departures">
+                                <div id="destination-ctx-ctr">
+                                    <div id="route-ctr-container"></div>
+                                    <div id="smart-tool-container">
+                                        <div id="action-wrapper">
+                                            <div id="edit-icon" class="action-icon-wrapper">
+                                                <img src="bravo/edit-unselected.png" class="action-icon">
+                                            </div>
+                                            <div id="rubbish-icon" class="action-icon-wrapper">
+                                                <img src="bravo/rubbish-unselected.png" class="action-icon">
+                                            </div>
+                                            <div id="json-icon" class="action-icon-wrapper">
+                                                <img src="bravo/json-unselected.png" class="action-icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="no-content-wrapper">
+
+                      <div id="no-content-container">
+                          <img id="no-content" src="bravo/alert.png">
+                      </div>
+                      <p id="no-content-txt">No content</p>
+                  </div>
+                  <img class="buffer hidden" src="bravo/buffer.gif" data-loc="content">
+                  <div data-loc="content" class="error-mask">
+                      <img src="bravo/error.png" class="error">
+                  </div>
+              </div>
+          </div>
+      </div>
+        <div id="no-info" style="text-align: center; display: block; animation: flight-show 2s forwards;">
+        <img src="ace/error.png" style="margin-top: 40%; width: 70px;">
+        <h class="header-text" style="margin-top: 30px; text-align: center;">No Content To View</h>
+        </div>
+      </div>
+
+      <img style="position: absolute; top: 20px; left: 20px; height: 40px;" src="circuit-main.png">
+
+      <div class="nav-container">
+        <!--navigation-->
+        <p class="nav-content-active" onclick="home()" id="homeClick" style="margin-left: 250px;">Home</p>
+        <p class="nav-content" onclick="help()" id="helpClick" style="margin-left: 50px;">Help</p>
+        <div style="position: relative; display: inline-block; width: 50%;">
+          <img style="position: absolute; top: 50%; transform: translateY(-50%); right: 15px; width: 4%;" src="ace/search.png">
+          <input class="input" placeholder="Search Database">
+        </div>
+      </div>
+
+      <!--home-->
+      <div id="home">
+      <!--content navigation-->
+      <div style="position: absolute; top: 14%; left: 0; width: 60%;">
+        <h class="header-text" style="display: inline-block;">Ace Dashboard</h>
+        <p onclick="flights()" style="float: right; margin-right: 40px; color: white; font-family: comfortaa;">Manage &nbsp; v</p>
+        <div style="margin-bottom: 30px;">
+          <p id="overviewClick" onclick="overview()" class="nav-active" style="margin-left: 30px;">Overview</p>
+          <p id="usersClick" onclick="users()" class="nav" style="margin-left: 50px;">Users</p>
+          <p id="flightsClick" onclick="flights()" class="nav" style="margin-left: 50px;">Flights</p>
+        </div>
+      </div>
+
+      <!--DATA-->
+      <div id="overview" style="display: block; position: absolute; bottom: 0px; left: 0px; height: 75%; width: 60%;">
+        <div class="content" onclick="users()" style="text-align: center; margin-left: 30px; height: 50%; width: 40%">
+          <!--users-->
+          <p style="text-align: center; color: #e60f0f; font-family: comfortaa; font-size: 150px; margin-top: 30px; ">15</p>
+          <p style="text-align: center; color: #e60f0f; font-family: comfortaa; font-size: 30px;">USERS</p>
+        </div>
+        <div class="content" style="height: 30%; width: 50%">
+          <!--user info-->
+
+          <div style="float: left; margin-left: 20%; text-align: center;">
+          <p style="color: rgb(150, 150, 150); font-family: comfortaa; font-size: 15px; margin-top: 30px; ">Booked Flights</p>
+          <p style="color: rgb(150, 150, 150); font-family: comfortaa; font-size: 90px;">89</p>
+          </div>
+
+          <div style="float: right; margin-right: 20%; text-align: center;">
+          <p style="color: green; font-family: comfortaa; font-size: 15px; margin-top: 30px; ">Checked In</p>
+          <p style="color: green; font-family: comfortaa; font-size: 90px;">76</p>
+          </div>
+
+        </div>
+        <div class="content" style="margin-left: 30px; height: 40%; width: 19%">
+          <!--success-->
+          <div class="canvas-wrap">
+            <canvas id="canvas" width="300" height="300"></canvas>
+            <span id="procent"></span>
+          </div>
+          <p style="text-align: center; color: #e60f0f; font-family: comfortaa; margin-top: -60px; font-size: 18px;">SATISFACTION</p>
+        </div>
+
+        <div class="content" style="height: 40%; width: 19%; text-align: center;">
+          <div id="txt" style="margin-top: 70px; font-size: 40px; font-family: comfortaa; color: #e60f0f;"></div>
+          <p style="text-align: center; color: #e60f0f; font-family: comfortaa; margin-top: 20px; font-size: 18px;">CURRENT TIME</p>
+        </div>
+
+        <div class="content" onclick="flights()" style="height: 60%; width: 50%; position: absolute; top: 32%; left: 44%;">
+          <p style="text-align: center; color: #e60f0f; font-family: comfortaa; font-size: 200px; margin-top: 30px; "><%= response.destinations.length %> </p>
+          <p style="text-align: center; color: #e60f0f; font-family: comfortaa; font-size: 30px;">DESTINATIONS</p>
+        </div>
+
+      </div>
+
+      <div id="users" style="display: none; position: absolute; bottom: 0px; left: 0px; height: 75%; width: 60%;">
+        <div class="content" style="text-align: center; margin-left: 30px; height: 92%; width: 95%">
+        </div>
+      </div>
+
+
+      <div id="flights" style="display: none; position: absolute; bottom: 0px; left: 0px; height: 75%; width: 60%;">
+        <div class="flightContent" style="text-align: center; margin-left: 30px; height: 92%; width: 95%; overflow-y: scroll;">
+          <div id="destinations">
+            <h1 id="destination-header">Manage Destinations</h1>
+            <p id="subheader">Successfully loaded all destinations.</p>
+            <button id="new-destination">+ Add new destination</button>
+            <div id="destination-wrapper">
+                <% var currentDestinationIndex = 0; %> 
+                <% response.destinations.forEach((destination) => { %>
+                    <div data-index="<%= currentDestinationIndex %>" class="destination">
+                        <div class="img-wrapper">
+                            <img class="head-img" src="ace/circleAirplane.png">
+                        </div>
+                        <div class="destination-txt-ctr-wrapper">
+                            <p class="destination-txt"><span class="destination-txt-head">[<%= destination.icao %>] <%= destination.city %>, <%= destination['state-code'] %></span><br><%= destination.airport %></p>
+                        </div>
+                        <img class="route-load" src="ace/arrow.png">
+                    </div>  
+                    <% currentDestinationIndex++ %> 
+                <% }) %> 
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--help-->
+    <div id="help" class="background" style="display: none;">
+
+    </div>
+    </div>
+  </body>
+</html>

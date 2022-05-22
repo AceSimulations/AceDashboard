@@ -1,0 +1,249 @@
+[
+    {
+        "icao":"HSV",
+        "center": [-86.7757, 34.6403],
+        "image": "https://3acujq5da9i3we40i1od3kl1-wpengine.netdna-ssl.com/wp-content/uploads/2019/01/150226_Panalpina-now-also-uses-Huntsville-International-Airport-as-a-gateway-to-Brazil-for-web.jpg",
+        "state":"Alabama",
+        "state-code":"AL",
+        "city":"Huntsville",
+        "airport":"Carl T. Jones Field",
+        "airport-type":"international",
+        "departures": [
+            {
+                "uuid": "b0xhbt78",
+                "flight-number":"BA1244",
+                "aircraft":"Boeing 737-800",
+                "aircraft-type":"commercial",
+                "departure-date":"2021-06-18",
+                "scheduled-departure":"16:04",
+                "package":"Bravo Plus",
+                "flight-duration":"60",
+                "arrival": {
+                    "icao":"ATL",
+                    "state":"Georgia",
+                    "state-code":"GA",
+                    "city":"Atlanta",
+                    "airport":"Hartsfield Jackson",
+                    "airport-type":"international"
+                }
+            },
+            {
+                "uuid": "u5vhpa55",
+                "flight-number":"BA4553",
+                "aircraft":"Bombardier CRJ900",
+                "aircraft-type":"commercial/jet",
+                "departure-date":"2021-06-01",
+                "scheduled-departure":"12:14",
+                "package":"Bravo Plus",
+                "flight-duration":"117",
+                "arrival": {
+                    "icao":"DFW",
+                    "state":"Texas",
+                    "state-code":"TX",
+                    "city":"Dallas",
+                    "airport":"Dallas Fort Worth",
+                    "airport-type":"international"
+                }
+            },
+            {
+                "uuid": "yzs9f9g3",
+                "flight-number":"BA0087",
+                "aircraft":"Boeing 737-800",
+                "aircraft-type":"commercial",
+                "departure-date":"2021-06-30",
+                "scheduled-departure":"10:54",
+                "package":"Bravo First Class",
+                "flight-duration":"107",
+                "arrival": {
+                    "icao":"LGA",
+                    "state":"New York",
+                    "state-code":"NY",
+                    "city":"New York",
+                    "airport":"LaGuardia",
+                    "airport-type":"international"
+                }
+            }
+        ]
+    },
+    {
+        "icao":"JFK",
+        "center": [-73.7781, 40.6413],
+        "image": "https://www.som.com/FILE/15270/jfkterminal4_1575x900_jeffgoldberg_01jpg.jpg",
+        "state":"New York",
+        "state-code":"NY",
+        "city":"New York",
+        "airport":"John F. Kennedy",
+        "airport-type":"international",
+        "departures": [
+            {
+                "uuid": "i59ndaz0",
+                "flight-number":"BA0009",
+                "aircraft":"Bombardier CRJ900",
+                "aircraft-type":"commercial/jet",
+                "departure-date":"2021-06-14",
+                "scheduled-departure":"18:04",
+                "package":"Bravo Plus",
+                "flight-duration":"120",
+                "arrival": {
+                    "icao":"ATL",
+                    "state":"Georgia",
+                    "state-code":"GA",
+                    "city":"Atlanta",
+                    "airport":"Hartsfield Jackson",
+                    "airport-type":"international"
+                }
+            },
+            {
+                "uuid": "rfognav0",
+                "flight-number":"BA1443",
+                "aircraft":"Boeing 737-800",
+                "aircraft-type":"commercial",
+                "departure-date":"2021-06-26",
+                "scheduled-departure":"12:04",
+                "package":"Bravo First Class",
+                "flight-duration":"100",
+                "arrival": {
+                    "icao":"DCA",
+                    "state":"District of Columbia",
+                    "state-code":"D.C.",
+                    "city":"Washington D.C.",
+                    "airport":"Ronald Regan",
+                    "airport-type":"international"
+                }
+            },
+            {
+                "uuid": "rvm7lsv7",
+                "flight-number":"BA9881",
+                "aircraft":"Learjet 45",
+                "aircraft-type":"jet",
+                "departure-date":"2021-06-20",
+                "scheduled-departure":"7:08",
+                "package":"Bravo Plus",
+                "flight-duration":"82",
+                "arrival": {
+                    "icao":"PWM",
+                    "state":"Maine",
+                    "state-code":"ME",
+                    "city":"Portland",
+                    "airport":"Portland International Jetport",
+                    "airport-type":"international"
+                }
+            }
+        ]
+    },
+    {
+        "icao":"ATL",
+        "center": [-84.4277, 33.6407],
+        "image": "https://simpleflying.com/wp-content/uploads/2020/04/North-and-South-Canopies-1024x682-1.png",
+        "state":"Georgia",
+        "state-code":"GA",
+        "city":"Atlanta",
+        "airport":"Hartsfield Jackson",
+        "airport-type":"international",
+        "departures": [
+            {
+                "uuid": "2bc91nrd",
+                "flight-number":"BA3409",
+                "aircraft":"Boeing 737-800",
+                "aircraft-type":"commercial",
+                "departure-date":"2021-06-10",
+                "scheduled-departure":"9:34",
+                "package":"Bravo Plus",
+                "flight-duration":"107",
+                "arrival": {
+                    "icao":"LGA",
+                    "state":"New York",
+                    "state-code":"NY",
+                    "city":"New York",
+                    "airport":"LaGuardia",
+                    "airport-type":"international"
+                }
+            },
+            {
+                "uuid": "0tqjgal4",
+                "flight-number":"BA9812",
+                "aircraft":"Boeing 737-800",
+                "aircraft-type":"commercial",
+                "departure-date":"2021-06-28",
+                "scheduled-departure":"16:04",
+                "package":"Bravo Plus",
+                "flight-duration":"60",
+                "arrival": {
+                    "icao":"SEA",
+                    "state":"Washington",
+                    "state-code":"WA",
+                    "city":"Seattle",
+                    "airport":"Seattle Tacoma",
+                    "airport-type":"international"
+                }
+            }
+        ]
+    },
+    {
+        "icao":"DFW",
+        "center": [-97.0403, 32.8998],
+        "image": "https://www.feelthere.com/wp-content/uploads/2019/11/kdfw2_tower3d.jpg",
+        "state":"Texas",
+        "state-code":"TX",
+        "city":"Dallas",
+        "airport":"Dallas Fort Worth",
+        "airport-type":"international",
+        "departures": []
+    },
+    {
+        "icao":"LGA",
+        "center": [-73.8740, 40.7769],
+        "image": "https://www.hok.com/wp-content/uploads/2020/04/LGA-Master-Plan-1900.jpg",
+        "state":"New York",
+        "state-code":"NY",
+        "city":"New York",
+        "airport":"LaGuardia",
+        "airport-type":"international",
+        "departures": []
+    },
+    {
+        "icao":"DCA",
+        "center": [-77.0402, 38.8512],
+        "image": "https://www.tripsavvy.com/thmb/FG7jXB6_qr6GRNqA32eo8yvN6rw=/3243x2120/national-airport-56a237b55f9b58b7d0c7fea6.jpg",
+        "state":"District of Columbia",
+        "state-code":"D.C.",
+        "city":"Washington",
+        "airport":"Ronald Regan",
+        "airport-type":"international",
+        "departures": []
+    },
+    {
+        "icao":"MIA",
+        "center": [-80.2785, 25.7951],
+        "image": "https://airport-world.com/wp-content/uploads/2020/04/viewofmiaconcoursej3-copy2017miami-dadeaviationdept-scaled.jpg",
+        "state":"Florida",
+        "state-code":"FL",
+        "city":"Miami",
+        "airport":"Wilcox Field",
+        "airport-type":"international",
+        "departures": []
+    },
+    {
+        "icao":"PWM",
+        "center": [-70.3097, 43.6465],
+        "image": "https://www.tripsavvy.com/thmb/CTmG29imtV7vrpO_rhvncJuK7ho=/1280x853/filters:fill(auto,1)/Entrance_to_Portland_International_Jetport_ME_IMG_3136-e33ab602f51940e2b0feb028aba8df99.JPG",
+        "state":"Maine",
+        "state-code":"ME",
+        "city":"Portland",
+        "airport":"Portland International Jetport",
+        "airport-type":"international",
+        "departures": []
+    },
+    {
+        "icao":"SEA",
+        "center": [-122.3088, 47.4502],
+        "image": "https://www.portseattle.org/sites/default/files/inline-images/Airport_190725_112.jpg",
+        "state":"Washington",
+        "state-code":"WA",
+        "city":"Seattle",
+        "airport":"Seattle Tacoma",
+        "airport-type":"international",
+        "departures": [],
+        "error":"Destination terminated."
+    }
+]

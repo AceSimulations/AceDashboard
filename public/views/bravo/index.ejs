@@ -1,0 +1,138 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air Alliance Circuit | Dashboard</title>
+        <link rel="icon" href="favicon.png">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+        <link rel="stylesheet" href="bravo/css/index.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="bravo/scripts/circuit.js"></script>
+    </head>
+    <body>
+        <div id="navigation">
+            <div id="logo-wrapper">
+                <img id="logo" src="bravo/logo.png">
+            </div>
+            <div class="nav-btn-wrapper">
+                <div class="btn-wrapper">
+                    <button class="btn-ctx">
+                        <img class="nav-img" src="bravo/dashboard-active.png">
+                    </button>
+                </div>
+                <p class="nav-page-txt">Dashboard</p>
+            </div>
+            <div class="nav-btn-wrapper">
+                <div class="btn-wrapper">
+                    <button class="btn-ctx inactive-btn">
+                        <img class="nav-img" src="bravo/users-inactive.png">
+                    </button>
+                </div>
+                <p class="nav-page-txt inactive">User Manager</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="nav-btn-wrapper lastElement">
+                <div class="btn-wrapper">
+                    <img class="usr-btn-ctx" src="bravo/usercontent/<%= response.currentUser.identifier %>.png">
+                </div>
+                <p class="nav-page-txt inactive"><%= response.currentUser.file.first_name %> <%= response.currentUser.file.last_name %></p>
+            </div>
+        </div>
+        <div id="destinations">
+            <h1 id="destination-header">Manage<br>destinations</h1>
+            <p id="subheader">Successfully loaded all destinations.</p>
+            <button id="new-destination">+ Add new destination</button>
+            <div id="destination-wrapper">
+                <% var currentDestinationIndex = 0; %> 
+                <% response.destinations.forEach((destination) => { %>
+                    <div data-index="<%= currentDestinationIndex %>" class="destination">
+                        <div class="img-wrapper">
+                            <img class="head-img" src="bravo/flights-inactive.png">
+                        </div>
+                        <div class="destination-txt-ctr-wrapper">
+                            <p class="destination-txt"><span class="destination-txt-head">[<%= destination.icao %>] <%= destination.city %>, <%= destination['state-code'] %></span><br><%= destination.airport %></p>
+                        </div>
+                        <img class="route-load" src="bravo/continue.png">
+                    </div>  
+                    <% currentDestinationIndex++ %> 
+                <% }) %> 
+            </div>
+        </div>
+        <div id="resources">
+            <div id="resource-widget-container">
+                <div id="resource-calendar">
+                    <h1 id="calendar-header"></h1>
+                    <div id="calendar-body"></div>
+                    <img class="buffer" src="bravo/buffer.gif" data-loc="calendar">
+                    <div data-loc="calendar" class="error-mask">
+                        <img src="bravo/error.png" class="error">
+                    </div>
+                </div>
+                <div id="resource-widget">
+                    <div id="routemap"></div>
+                    <p id="routemap-desc">Showing: <span id="routemap-desc-loc">United States</span></p>
+                    <div data-loc="widget" class="error-mask">
+                        <img src="bravo/error.png" class="error">
+                    </div>
+                </div>
+            </div>
+            <div id="resource-content-container">
+                <div id="resource-content-display">
+                    <div id="current-destination">
+                        <div id="curr-destination-img-container">
+                            <img src="bravo/default.png" id="curr-destination-img">
+                        </div>
+                        <div id="curr-destination-ctx-container">
+                            <p id="dest-info-wrapper">
+                                <p id="dest-city-header">
+                                    <span id="dest-icao">HSV</span>
+                                    <span id="city-state">Huntsville, AL</span>
+                                </p><br>
+                                <p id="dest-city-footer">
+                                    <span id="dest-routes">3</span> route(s) currently tracked
+                                </p>
+                            </p>
+                            <div id="actions-container">
+                                <img src="bravo/edit.png" id="left-action">
+                                <img src="bravo/rubbish.png" id="right-action">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="destination-departures">
+                        <div id="destination-ctx-ctr">
+                            <div id="route-ctr-container"></div>
+                            <div id="smart-tool-container">
+                                <div id="action-wrapper">
+                                    <div id="edit-icon" class="action-icon-wrapper">
+                                        <img src="bravo/edit-unselected.png" class="action-icon">
+                                    </div>
+                                    <div id="rubbish-icon" class="action-icon-wrapper">
+                                        <img src="bravo/rubbish-unselected.png" class="action-icon">
+                                    </div>
+                                    <div id="json-icon" class="action-icon-wrapper">
+                                        <img src="bravo/json-unselected.png" class="action-icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="no-content-wrapper">
+                        <div id="no-content-container">
+                            <img id="no-content" src="bravo/alert.png">
+                        </div>
+                        <p id="no-content-txt">No content</p>
+                    </div>
+                    <img class="buffer hidden" src="bravo/buffer.gif" data-loc="content">
+                    <div data-loc="content" class="error-mask">
+                        <img src="bravo/error.png" class="error">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

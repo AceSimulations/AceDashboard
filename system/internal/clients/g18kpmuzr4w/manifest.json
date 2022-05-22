@@ -1,0 +1,21 @@
+[
+    {
+        "basic": {
+            "first_name": "Benjamin",
+            "middle_initial": "P",
+            "last_name": "Lambertson",
+            "email": "aceairofficial@gmail.com",
+            "username": "AceAirlines",
+            "company": "aceairlines",
+            "permissions": {
+                "circuit": true,
+                "bookaflight": true,
+                "aceapp": true
+            }
+        },
+        "auth": {
+            "username": "AceAirlines",
+            "password": "$2b$10$nFIz4oYnFQcPKL1EU97IYuE5i3sW3Z53N.SI8XRG3QT/Mn/eCdIwK"
+        }
+    }
+]
